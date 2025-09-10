@@ -5,12 +5,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import './index.css';
 
-/**
- * Resolve registry URL:
- * - Prefer process.env (Webpack EnvironmentPlugin in both dev/prod builds)
- * - Fall back to import.meta.env only in dev
- * - In production, if nothing is set -> skip self-register
- */
 const ENV_REGISTRY =
   (typeof process !== 'undefined' && (process as any)?.env?.VITE_REGISTRY_URL) ||
   (typeof import.meta !== 'undefined' &&
@@ -21,8 +15,8 @@ const ENV_REGISTRY =
 const REGISTRY_URL =
   ENV_REGISTRY ||
   ((typeof import.meta !== 'undefined' && (import.meta as any)?.env?.DEV)
-    ? 'http://localhost:4000/registry'   // dev default only
-    : '');                                // prod default: disabled
+    ? 'http://localhost:4000/registry'
+    : '');
 
 async function selfRegister() {
   if (!REGISTRY_URL) {
@@ -43,7 +37,6 @@ async function selfRegister() {
     console.warn('⚠️ Plugin self-register failed', e);
   }
 }
-// Trigger once on startup
 selfRegister();
 
 const mount = (el: HTMLElement) => {
@@ -63,7 +56,6 @@ const mount = (el: HTMLElement) => {
   );
 };
 
-// Dev isolation mount
 if ((import.meta as any)?.env?.DEV) {
   const devRoot = document.getElementById('root');
   if (devRoot && !String(window.name || '').includes('host')) {
