@@ -1,0 +1,9 @@
+{
+  "name": "auth-app",
+  "displayName": "Authentication",
+  "scope": "authApp",
+  "url": "http://localhost:3001/remoteEntry.js",
+  "routes": ["/login", "/profile"],
+  "roles": ["user", "admin"],
+  "modules": ["./Login", "./UserProfile"]
+}

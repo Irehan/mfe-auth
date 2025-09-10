@@ -1,0 +1,111 @@
+/* ========= Theme Tokens ========= */
+/* Light (default) */
+:root {
+  /* Base */
+  --color-text: #213547;
+  --color-bg: #ffffff;
+
+  /* Brand */
+  --color-primary: #646cff;
+  --color-primary-hover: #535bf2;
+
+  /* UI */
+  --color-border: #e0e0e0;
+  --color-button-bg: #f9f9f9;
+
+  /* Status */
+  --color-success: #28a745;
+  --color-danger: #dc3545;
+  --color-warning: #ffc107;
+
+  /* Typography & smoothing */
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Let UA know we support both (helps form controls on some browsers) */
+  color-scheme: light dark;
+}
+
+/* Dark overrides */
+:root[data-theme="dark"] {
+  --color-text: rgba(255, 255, 255, 0.87);
+  --color-bg: #0e1016;
+
+  --color-primary: #8b95ff;
+  --color-primary-hover: #a0a7ff;
+
+  --color-border: #3a3d46;
+  --color-button-bg: #1a1f2b;
+
+  --color-success: #4caf50;
+  --color-danger: #f44336;
+  --color-warning: #ffb300;
+}
+
+/* ========= Base Styles ========= */
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  margin: 0;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* Buttons */
+button {
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--color-button-bg);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.25s, color 0.25s;
+}
+button:hover {
+  border-color: var(--color-primary);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* ========= Status Chips (optional helpers) ========= */
+.status-success {
+  background: var(--color-success);
+  color: #fff;
+}
+
+.status-danger {
+  background: var(--color-danger);
+  color: #fff;
+}
+
+.status-warning {
+  background: var(--color-warning);
+  color: #000;
+}
